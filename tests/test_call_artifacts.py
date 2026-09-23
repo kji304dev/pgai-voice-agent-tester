@@ -6,9 +6,12 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import pytest
+
 from pgai_voice_agent_tester.call_artifacts import (
     build_call_metadata,
     persist_call_artifacts,
+    prepare_session_report,
     render_transcript_md,
 )
 
@@ -143,3 +146,56 @@ def test_persist_copies_existing_audio(tmp_path: Path) -> None:
     assert dest.read_bytes() == b"OggS-fake-audio"
     metadata = json.loads((out_dir / "metadata.json").read_text(encoding="utf-8"))
     assert metadata["recording_filename"] == "audio.ogg"
+
+
+@pytest.mark.asyncio
+async def test_prepare_session_report_closes_recorder_before_report() -> None:
+    """RecorderIO must be closed before make_session_report when still recording."""
+    events: list[str] = []
+
+    class FakeRecorder:
+        def __init__(self) -> None:
+            self.recording = True
+
+        async def aclose(self) -> None:
+            events.append("aclose")
+            self.recording = False
+
+    class FakeCtx:
+        def make_session_report(self, session: object | None = None) -> SimpleNamespace:
+            events.append("make_session_report")
+            recorder = getattr(session, "_recorder_io", None)
+            if recorder is not None and getattr(recorder, "recording", False):
+                raise RuntimeError(
+                    "Cannot create the AgentSession report, the RecorderIO is still recording"
+                )
+            return SimpleNamespace(room="pgai-test-room", ok=True)
+
+    session = SimpleNamespace(_recorder_io=FakeRecorder())
+    report = await prepare_session_report(FakeCtx(), session)
+
+    assert report.ok is True
+    assert events == ["aclose", "make_session_report"]
+    assert session._recorder_io.recording is False
+
+
+@pytest.mark.asyncio
+async def test_prepare_session_report_skips_aclose_when_not_recording() -> None:
+    events: list[str] = []
+
+    class FakeRecorder:
+        recording = False
+
+        async def aclose(self) -> None:
+            events.append("aclose")
+
+    class FakeCtx:
+        def make_session_report(self, session: object | None = None) -> SimpleNamespace:
+            events.append("make_session_report")
+            return SimpleNamespace(ok=True)
+
+    session = SimpleNamespace(_recorder_io=FakeRecorder())
+    report = await prepare_session_report(FakeCtx(), session)
+
+    assert report.ok is True
+    assert events == ["make_session_report"]

@@ -8,7 +8,10 @@ from livekit.agents import AgentServer, AgentSession, JobContext, cli, inference
 from livekit.plugins import deepgram, openai, silero
 
 from pgai_voice_agent_tester.agent_config import LIVEKIT_AGENT_NAME
-from pgai_voice_agent_tester.call_artifacts import persist_call_artifacts
+from pgai_voice_agent_tester.call_artifacts import (
+    persist_call_artifacts,
+    prepare_session_report,
+)
 from pgai_voice_agent_tester.patient import (
     create_patient_agent_from_selection,
     resolve_scenario_selection,
@@ -33,9 +36,20 @@ async def entrypoint(ctx: JobContext) -> None:
     )
     agent = create_patient_agent_from_selection(selection)
 
+    session = AgentSession(
+        vad=silero.VAD.load(),
+        stt=deepgram.STT(model="nova-3", language="en-US"),
+        llm=openai.LLM(model="gpt-4.1"),
+        tts=inference.TTS(
+            model="cartesia/sonic-3",
+            voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
+            language="en",
+        ),
+    )
+
     async def _persist_call_artifacts(_reason: str) -> None:
         try:
-            report = ctx.make_session_report()
+            report = await prepare_session_report(ctx, session)
         except Exception:
             logger.exception("Unable to build SessionReport for local call artifacts")
             return
@@ -54,17 +68,6 @@ async def entrypoint(ctx: JobContext) -> None:
             logger.exception("Failed to persist local call artifacts")
 
     ctx.add_shutdown_callback(_persist_call_artifacts)
-
-    session = AgentSession(
-        vad=silero.VAD.load(),
-        stt=deepgram.STT(model="nova-3", language="en-US"),
-        llm=openai.LLM(model="gpt-4.1"),
-        tts=inference.TTS(
-            model="cartesia/sonic-3",
-            voice="9626c31c-bec5-4cca-baa8-f8ba9e84c8bc",
-            language="en",
-        ),
-    )
 
     await session.start(
         agent=agent,

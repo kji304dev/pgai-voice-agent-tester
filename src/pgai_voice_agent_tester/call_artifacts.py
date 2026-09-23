@@ -22,6 +22,20 @@ def calls_dir() -> Path:
     return Path(__file__).resolve().parents[2] / "calls"
 
 
+async def prepare_session_report(ctx: Any, session: Any) -> Any:
+    """Finalize RecorderIO if needed, then build a LiveKit SessionReport.
+
+    LiveKit's ``make_session_report`` raises if RecorderIO is still recording.
+    Shutdown can reach persistence before the recorder has been marked closed;
+    close it first so a completed call's artifacts are not dropped entirely.
+    """
+    recorder_io = getattr(session, "_recorder_io", None) if session is not None else None
+    if recorder_io is not None and getattr(recorder_io, "recording", False):
+        logger.info("RecorderIO still recording at persist time; closing before session report")
+        await recorder_io.aclose()
+    return ctx.make_session_report(session)
+
+
 def render_transcript_md(chat_history: Any) -> str:
     """Render chronological PGAI/PATIENT transcript from a ChatContext-like object."""
     items = getattr(chat_history, "items", None)
