@@ -1,0 +1,14 @@
+{
+  "scenario_id": "06_insurance_payment",
+  "room_name": "pgai-06_insurance_payment-a7e299ae",
+  "room_id": "RM_SV5LCWfjqN4A",
+  "job_id": "AJ_NZdWXreFGLEo",
+  "dispatch_id": "AD_r2akTVy8W9e4",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790123047.3357399,
+  "session_started_at": 1790123047.323901,
+  "session_ended_at": 1790123196.082774
+}

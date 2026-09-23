@@ -1,0 +1,14 @@
+{
+  "scenario_id": "08_conversation_correction",
+  "room_name": "pgai-08_conversation_correction-9d0dde70",
+  "room_id": "RM_YLsWJGhPHGzU",
+  "job_id": "AJ_v4v2AMAuF584",
+  "dispatch_id": "AD_WY68MA2ontTG",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790123561.719069,
+  "session_started_at": 1790123561.705527,
+  "session_ended_at": 1790123735.5770628
+}

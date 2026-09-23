@@ -1,0 +1,14 @@
+{
+  "scenario_id": "07_specific_provider_time",
+  "room_name": "pgai-07_specific_provider_time-ddb326b1",
+  "room_id": "RM_YAWy46NHbgWn",
+  "job_id": "AJ_FcZALwDuoMfp",
+  "dispatch_id": "AD_3cVP8AwXm8rJ",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790123309.698715,
+  "session_started_at": 1790123309.680605,
+  "session_ended_at": 1790123460.703539
+}

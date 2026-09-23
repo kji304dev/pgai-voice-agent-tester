@@ -1,0 +1,14 @@
+{
+  "scenario_id": "03_medication_refill",
+  "room_name": "pgai-03_medication_refill-7ed4bb76",
+  "room_id": "RM_E3zs64fNsfoD",
+  "job_id": "AJ_MGGzmhYJKCDP",
+  "dispatch_id": "AD_wwUYbkWi7JsU",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790121780.980848,
+  "session_started_at": 1790121780.970044,
+  "session_ended_at": 1790121970.200593
+}

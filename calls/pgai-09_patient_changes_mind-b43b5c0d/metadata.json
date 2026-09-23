@@ -1,0 +1,14 @@
+{
+  "scenario_id": "09_patient_changes_mind",
+  "room_name": "pgai-09_patient_changes_mind-b43b5c0d",
+  "room_id": "RM_F2rsVcvgqhVG",
+  "job_id": "AJ_2K2xtcneGWRM",
+  "dispatch_id": "AD_J6zPqfxorWbk",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790123925.168674,
+  "session_started_at": 1790123925.156419,
+  "session_ended_at": 1790124110.319339
+}

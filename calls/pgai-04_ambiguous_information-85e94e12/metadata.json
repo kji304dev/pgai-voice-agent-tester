@@ -1,0 +1,14 @@
+{
+  "scenario_id": "04_ambiguous_information",
+  "room_name": "pgai-04_ambiguous_information-85e94e12",
+  "room_id": "RM_bvHTAJ7dTnXK",
+  "job_id": "AJ_TxyzvcvdUksR",
+  "dispatch_id": "AD_L8qLc8AiGMgi",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790122259.272932,
+  "session_started_at": 1790122259.2594361,
+  "session_ended_at": 1790122411.7527611
+}

@@ -1,0 +1,14 @@
+{
+  "scenario_id": "02_rescheduling",
+  "room_name": "pgai-02_rescheduling-37056672",
+  "room_id": "RM_SzYaaKukZVE5",
+  "job_id": "AJ_BsFmqKDSu9se",
+  "dispatch_id": "AD_kV57TQFZxLvB",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790115106.845284,
+  "session_started_at": 1790115106.831466,
+  "session_ended_at": 1790115299.0431669
+}

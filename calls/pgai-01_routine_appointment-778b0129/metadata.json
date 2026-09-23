@@ -1,0 +1,14 @@
+{
+  "scenario_id": "01_routine_appointment",
+  "room_name": "pgai-01_routine_appointment-778b0129",
+  "room_id": "RM_R2Q7jRzz3bDC",
+  "job_id": "AJ_EMznFVp3TXJ3",
+  "dispatch_id": "AD_QcrayNLe5vdL",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790114649.1267068,
+  "session_started_at": 1790114649.114902,
+  "session_ended_at": 1790114785.877043
+}

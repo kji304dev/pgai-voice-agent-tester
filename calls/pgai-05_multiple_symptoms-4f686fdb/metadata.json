@@ -1,0 +1,14 @@
+{
+  "scenario_id": "05_multiple_symptoms",
+  "room_name": "pgai-05_multiple_symptoms-4f686fdb",
+  "room_id": "RM_bExjegsAUP7M",
+  "job_id": "AJ_jPZxFhSmctqN",
+  "dispatch_id": "AD_w4K3MCg9B4rY",
+  "sip_call_id": null,
+  "caller_number": null,
+  "destination_number": null,
+  "recording_filename": "audio.ogg",
+  "recording_started_at": 1790122747.414847,
+  "session_started_at": 1790122747.401789,
+  "session_ended_at": 1790122906.409865
+}
