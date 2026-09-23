@@ -248,9 +248,9 @@ Full write-up with transcript excerpts: **[`bugs/BUG_REPORT.md`](bugs/BUG_REPORT
 
 | Deliverable | Link |
 |---|---|
-| GitHub repository | _TODO: add public repo URL_ |
-| Loom — architecture / demo | _TODO: add Loom URL_ |
-| Loom — findings / bug analysis | _TODO: add Loom URL_ |
+| GitHub repository | https://github.com/kji304dev/pgai-voice-agent-tester |
+| Loom #1 — Project walkthrough | https://www.loom.com/share/a572fc63db164fcb95095993e55712d5 |
+| Loom #2 — AI-assisted debugging | https://www.loom.com/share/03d2bc69f1ca4a9b97c1a15b4d1f80c5 |
 | Bug report | [`bugs/BUG_REPORT.md`](bugs/BUG_REPORT.md) |
 
 ---
