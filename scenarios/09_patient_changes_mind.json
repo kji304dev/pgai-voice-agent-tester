@@ -1,0 +1,30 @@
+{
+  "id": "09_patient_changes_mind",
+  "name": "Patient changes intent mid-call",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent follows the patient's latest intent when they start by asking to schedule, then change course to a different question, and finally decide whether to book.",
+  "patient": {
+    "name": "Grace Okonkwo",
+    "date_of_birth": "2001-07-18",
+    "initial_intent": "Schedule a sick visit for a sore throat",
+    "mid_call_question": "Clinic hours and whether walk-ins are accepted",
+    "final_intent": "Do not schedule now; ask for a callback tomorrow morning instead",
+    "symptoms": "Sore throat for two days, no fever",
+    "medications": "None",
+    "allergies": "None"
+  },
+  "conversation_beats": [
+    "Start by asking to schedule a sick visit for a sore throat.",
+    "After the agent begins collecting scheduling details, change your mind and ask about clinic hours and walk-ins instead.",
+    "Answer any symptom or identity questions briefly if they still ask.",
+    "Decide you do not want to schedule right now.",
+    "Ask for a callback tomorrow morning instead of booking an appointment.",
+    "Provide your name and date of birth if needed for the callback request.",
+    "Confirm that no appointment should be booked on this call.",
+    "End the call normally."
+  ],
+  "observations": []
+}

@@ -1,0 +1,31 @@
+[project]
+name = "pgai-voice-agent-tester"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Kevin Ingles", email = "66982466+kji304dev@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "livekit-agents==1.8.2",
+    "livekit-plugins-cartesia==1.8.2",
+    "livekit-plugins-deepgram==1.8.2",
+    "livekit-plugins-openai==1.8.2",
+    "livekit-plugins-silero==1.8.2",
+    "python-dotenv>=1.2.3",
+]
+
+[project.scripts]
+pgai-voice-agent-tester = "pgai_voice_agent_tester:main"
+pgai-outbound-call = "pgai_voice_agent_tester.outbound:main"
+
+[build-system]
+requires = ["uv_build>=0.12.17,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]

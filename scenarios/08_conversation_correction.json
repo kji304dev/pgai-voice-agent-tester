@@ -1,0 +1,31 @@
+{
+  "id": "08_conversation_correction",
+  "name": "Patient corrects an incorrect agent assumption",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent updates its understanding when the patient explicitly corrects an incorrect assumption, rather than continuing with the wrong detail later in the call.",
+  "patient": {
+    "name": "Omar Haddad",
+    "date_of_birth": "1979-01-25",
+    "symptoms": "right knee pain after jogging",
+    "incorrect_assumption_to_correct": "Agent may assume left knee, older injury, or urgent ER-level pain",
+    "corrected_detail": "Right knee only; started three days ago after jogging; mild to moderate, not an emergency",
+    "preferred_date": "Friday",
+    "preferred_time": "4:00 PM",
+    "medications": "None",
+    "allergies": "Ibuprofen causes stomach upset"
+  },
+  "conversation_beats": [
+    "Ask for an appointment for knee pain after jogging.",
+    "If the agent assumes the left knee, wrong side, or that it has been going on for weeks, explicitly correct them.",
+    "State clearly: it is the right knee, started three days ago, mild to moderate, not an emergency.",
+    "Later in the call, ask the agent to confirm which knee and how long the pain has lasted.",
+    "Request Friday at 4:00 PM.",
+    "Mention the ibuprofen allergy only if asked about allergies or medications.",
+    "Provide name and date of birth when requested.",
+    "End the call normally."
+  ],
+  "observations": []
+}

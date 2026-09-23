@@ -1,0 +1,30 @@
+{
+  "id": "06_insurance_payment",
+  "name": "Insurance acceptance and estimated patient cost",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent distinguishes information it can reasonably share from insurance or payment details it cannot verify, without inventing coverage or exact out-of-pocket amounts.",
+  "patient": {
+    "name": "Derek Collins",
+    "date_of_birth": "1990-09-03",
+    "insurance_plan": "BlueCare HMO",
+    "member_id": "BC998877",
+    "reason": "Annual checkup",
+    "preferred_date": "next Monday",
+    "preferred_time": "anytime after 1:00 PM",
+    "medications": "None",
+    "allergies": "None"
+  },
+  "conversation_beats": [
+    "Ask whether the clinic accepts BlueCare HMO before scheduling.",
+    "Ask what you might owe for an annual checkup with that plan.",
+    "If the agent gives a specific dollar amount without checking, ask how they know that.",
+    "Provide member ID BC998877 if asked.",
+    "Say you still want to book next Monday after 1:00 PM if insurance questions can be handled separately.",
+    "Provide your name and date of birth when requested.",
+    "End the call normally."
+  ],
+  "observations": []
+}

@@ -1,0 +1,31 @@
+{
+  "id": "04_ambiguous_information",
+  "name": "Ambiguous dates, times, names, and self-corrections",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent asks for clarification when the patient gives unclear dates, times, names, or symptoms and self-corrects, instead of guessing or locking in the wrong details.",
+  "patient": {
+    "name": "Sam Rivera",
+    "date_of_birth": "1992-02-17",
+    "symptoms": "headache",
+    "clarified_symptoms": "migraine-like headache on the left side",
+    "preferred_date_unclear": "sometime next week, maybe Wednesday or Thursday",
+    "preferred_date_final": "Thursday",
+    "preferred_time_unclear": "around lunchtime",
+    "preferred_time_final": "12:30 PM",
+    "medications": "Occasional ibuprofen",
+    "allergies": "None"
+  },
+  "conversation_beats": [
+    "Ask to schedule because of a 'bad head thing' without naming the symptom clearly at first.",
+    "When pressed, say it might be a headache, then correct yourself to a migraine-like headache on the left side.",
+    "Request an appointment 'sometime next week, maybe Wednesday or Thursday.'",
+    "Say 'around lunchtime' without a specific clock time.",
+    "If the agent guesses a day or time, correct them and settle on Thursday at 12:30 PM.",
+    "Give your name unclearly once ('Sam... Rivera? Rivera') then confirm Sam Rivera and DOB 1992-02-17.",
+    "End the call normally."
+  ],
+  "observations": []
+}

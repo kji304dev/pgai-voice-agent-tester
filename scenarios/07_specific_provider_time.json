@@ -1,0 +1,30 @@
+{
+  "id": "07_specific_provider_time",
+  "name": "Specific provider and time with alternate acceptance",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent correctly separates requested provider/time availability from a confirmed booking, and accurately reflects when the patient accepts an alternative instead of the original request.",
+  "patient": {
+    "name": "Hannah Brooks",
+    "date_of_birth": "1996-12-12",
+    "requested_provider": "Dr. Kim",
+    "requested_date": "Wednesday",
+    "requested_time": "9:00 AM",
+    "accepted_alternative": "Thursday at 11:00 AM with Dr. Kim, or another available clinician if needed",
+    "reason": "Skin rash on forearm",
+    "medications": "None",
+    "allergies": "None"
+  },
+  "conversation_beats": [
+    "Ask specifically for Dr. Kim on Wednesday at 9:00 AM for a skin rash on your forearm.",
+    "If told that slot is unavailable, ask what else is open with Dr. Kim.",
+    "Accept Thursday at 11:00 AM as an alternative if offered, or the closest available option.",
+    "Clarify that accepting an alternative is not the same as confirming the original Wednesday 9 AM request.",
+    "Provide your name and date of birth when asked.",
+    "Ask whether the appointment is requested, held, or actually booked.",
+    "End the call normally."
+  ],
+  "observations": []
+}

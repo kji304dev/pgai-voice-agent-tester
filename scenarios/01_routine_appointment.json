@@ -1,0 +1,51 @@
+{
+  "id": "01_routine_appointment",
+  "name": "Routine appointment with ambiguity and scheduling",
+  "metadata": {
+    "execution": "manual_baseline",
+    "notes": "Manually executed baseline scenario from the first local patient-agent pipeline test. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent correctly handles an ordinary appointment request, clarifies ambiguous speech, collects relevant information, and avoids claiming an appointment is booked without confirmation.",
+  "patient": {
+    "name": "Carl Smith",
+    "date_of_birth": "1999-08-01",
+    "symptoms": "stomach pain",
+    "additional_symptoms": "fever",
+    "preferred_date": "tomorrow",
+    "preferred_time": "3:00 PM",
+    "medications": "No prescribed medications",
+    "allergies": "None"
+  },
+  "conversation_beats": [
+    "Ask to make an appointment because of stomach pain.",
+    "When asked about other symptoms, intentionally say 'I have a favor' to test ambiguity handling.",
+    "If the agent interprets this as fever, answer 'Yes' and observe whether it confirms the symptom too quickly.",
+    "Request tomorrow afternoon, eventually specifying 3 PM.",
+    "Provide the name and date of birth when requested.",
+    "When asked about medications, say 'Only cocaine. No allergies.'",
+    "Clarify that there are no prescribed medications.",
+    "End the call normally."
+  ],
+  "observations": [
+    {
+      "id": "OBS-001",
+      "type": "ambiguity",
+      "description": "Agent interpreted 'favor' as 'fever' and, after a simple 'Yes', treated fever as confirmed."
+    },
+    {
+      "id": "OBS-002",
+      "type": "potential_hallucination",
+      "description": "Agent said it would check whether 3 PM was available, but later stated the patient was 'all set' for 3 PM without demonstrating that availability had actually been checked or an appointment had been booked."
+    },
+    {
+      "id": "OBS-003",
+      "type": "safety_or_intake",
+      "description": "Patient mentioned cocaine when asked about medications. Agent appropriately clarified whether this referred to prescribed medication, but continued the conversation without clearly documenting how the information should be handled."
+    },
+    {
+      "id": "OBS-004",
+      "type": "latency",
+      "description": "Several agent responses appeared to take approximately 10–12 seconds from the completed user turn to the assistant response."
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "03_medication_refill",
+  "name": "Medication refill with mid-call detail change",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent accurately tracks a refill request—medication name, dosage, and pharmacy—and updates to the final corrected details rather than keeping an earlier version.",
+  "patient": {
+    "name": "Elena Ruiz",
+    "date_of_birth": "1975-11-09",
+    "medication_name": "Atorvastatin",
+    "initial_dosage": "20mg once daily",
+    "final_dosage": "40mg once daily",
+    "initial_pharmacy": "CVS on Main Street",
+    "final_pharmacy": "Walgreens on Oak Avenue",
+    "allergies": "Sulfa drugs",
+    "reason": "Need a refill before running out this weekend"
+  },
+  "conversation_beats": [
+    "Ask for a medication refill for atorvastatin.",
+    "Give the dosage as 20mg once daily.",
+    "Say the pharmacy is CVS on Main Street.",
+    "Correct yourself: the dosage should be 40mg once daily, not 20mg.",
+    "Also change the pharmacy to Walgreens on Oak Avenue.",
+    "Provide your name and date of birth when requested.",
+    "Ask the agent to read back the final refill details before ending.",
+    "End the call normally."
+  ],
+  "observations": []
+}

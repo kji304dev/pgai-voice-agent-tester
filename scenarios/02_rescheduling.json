@@ -1,0 +1,30 @@
+{
+  "id": "02_rescheduling",
+  "name": "Rescheduling with changing time preference",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent correctly handles an existing appointment that the patient wants to move, tracks mid-call preference changes, and keeps the latest preferred time rather than an earlier one.",
+  "patient": {
+    "name": "Maya Thompson",
+    "date_of_birth": "1987-04-22",
+    "existing_appointment": "Friday at 10:00 AM with Dr. Patel",
+    "reason": "Follow-up visit",
+    "preferred_date": "next Tuesday",
+    "initial_preferred_time": "morning",
+    "final_preferred_time": "2:30 PM",
+    "medications": "Lisinopril 10mg daily",
+    "allergies": "Penicillin"
+  },
+  "conversation_beats": [
+    "Say you already have an appointment on Friday at 10 AM with Dr. Patel and need to reschedule it.",
+    "Ask to move it to next Tuesday morning.",
+    "When the agent confirms Tuesday morning, change your mind and say afternoon works better.",
+    "Eventually specify 2:30 PM as the preferred time.",
+    "Provide your name and date of birth if asked.",
+    "Confirm the final requested time is Tuesday at 2:30 PM, not Friday morning or Tuesday morning.",
+    "End the call normally."
+  ],
+  "observations": []
+}

@@ -1,0 +1,35 @@
+{
+  "id": "05_multiple_symptoms",
+  "name": "Multiple symptoms with shifting order and details",
+  "metadata": {
+    "execution": "manual_design",
+    "notes": "Manually designed test scenario for healthcare AI phone-agent evaluation. Observations are preliminary notes for later review, not confirmed bugs or formal bug reports."
+  },
+  "goal": "Test whether the healthcare agent captures several symptoms reported in one conversation, keeps earlier details when later ones change, and does not drop important information when the patient revises order or wording.",
+  "patient": {
+    "name": "Priya Nair",
+    "date_of_birth": "1984-06-30",
+    "symptoms": [
+      "sore throat for three days",
+      "body aches",
+      "mild congestion",
+      "low-grade fever yesterday evening"
+    ],
+    "revised_detail": "Fever started two nights ago, not just yesterday evening",
+    "preferred_date": "as soon as possible this week",
+    "preferred_time": "morning",
+    "medications": "Acetaminophen as needed",
+    "allergies": "Latex"
+  },
+  "conversation_beats": [
+    "Say you need an appointment and list sore throat, body aches, and congestion together.",
+    "Add that you also had a low-grade fever yesterday evening.",
+    "Change the fever timing: it started two nights ago, not just yesterday.",
+    "Re-order which symptom bothers you most—say the sore throat is the main issue, then body aches.",
+    "Provide name and date of birth when asked.",
+    "Ask the agent to summarize the symptoms they captured.",
+    "Request the soonest morning appointment this week.",
+    "End the call normally."
+  ],
+  "observations": []
+}
